@@ -116,3 +116,27 @@ const getTag = async () => {
 }
 
 // getInformation()
+
+
+// Remove Tag From A User
+const removeTag = async () => {
+  const listId = "<List Id>";
+  const email = "user_email";
+  const subscriberHash = md5(email.toLowerCase())
+
+  const response = await mailchimp.lists.updateListMemberTags(
+    listId,
+    subscriberHash,
+    {
+      tags: [
+        {
+          name: "Tags",
+          status: "inactive",
+        },
+      ],
+    }
+  )
+  console.log(response);
+}
+
+// removeTag()
