@@ -21,3 +21,11 @@ const lists = async () => {
 };
 
 // lists()
+
+// Get Specific Inforamtion about a list
+const listById = async () => {
+  const response = await mailchimp.lists.getList("0ec9a1c754");
+  console.log(response);
+};
+
+// listById();
