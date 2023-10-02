@@ -38,3 +38,18 @@ const members = async () => {
 };
 
 // members()
+
+// Get A Specific Member Information From A Specific List
+const member = async () => {
+
+  const email = "user_email";
+  const subscriberHash = md5(email.toLowerCase())
+
+  const response = await mailchimp.lists.getListMember(
+    "<List Id>",
+    subscriberHash
+  );
+  console.log(response);
+};
+
+// member()
