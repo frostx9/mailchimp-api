@@ -13,3 +13,11 @@ const run = async () => {
 }
 
 // run();
+
+// Get All Lists Info
+const lists = async () => {
+  const response = await mailchimp.lists.getAllLists();
+  console.log(response);
+};
+
+// lists()
