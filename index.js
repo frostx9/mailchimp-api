@@ -39,7 +39,7 @@ const members = async () => {
 
 // members()
 
-// Get A Specific Member Information From A Specific List
+// 
 const member = async () => {
 
   const email = "user_email";
@@ -53,3 +53,26 @@ const member = async () => {
 };
 
 // member()
+
+//Add Member To A List
+const addMember = async () => {
+  const response = await mailchimp.lists.addListMember("0ec9a1c754", {
+    email_address: "email",
+    status: "subscribed",
+    tags: ["Tags"],
+    merge_fields: {
+      FNAME: "First Name",
+      LNAME: "Last Name",
+      PHONE: "Phone Number",
+      ADDRESS: {
+        addr1: "Street Address",
+        city: "City",
+        state: "State",
+        zip: "Zip Code",
+      }
+    },
+  });
+  console.log(response);
+};
+
+// addMember();
