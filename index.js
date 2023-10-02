@@ -140,3 +140,30 @@ const removeTag = async () => {
 }
 
 // removeTag()
+
+
+
+// Add Tag to a user
+const addTag = async () => {
+
+  const listId = "<List Id>";
+  const email = "user_email";
+  const subscriberHash = md5(email.toLowerCase())
+
+  const response = await mailchimp.lists.updateListMemberTags(
+    listId,
+    subscriberHash,
+    {
+      tags: [
+        {
+          name: "Tag",
+          status: "active",
+        }
+      ],
+    }
+  )
+  console.log(response);
+}
+
+
+// addTag()
