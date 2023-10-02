@@ -24,8 +24,17 @@ const lists = async () => {
 
 // Get Specific Inforamtion about a list
 const listById = async () => {
-  const response = await mailchimp.lists.getList("0ec9a1c754");
+  const response = await mailchimp.lists.getList("<List Id>");
   console.log(response);
 };
 
 // listById();
+
+
+// Get All Members Information From a specific List
+const members = async () => {
+  const response = await mailchimp.lists.getListMembersInfo("<List Id>");
+  console.log(response);
+};
+
+// members()
