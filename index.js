@@ -102,3 +102,17 @@ const updateMember = async () => {
 };
 
 // updateMember();
+
+
+// Get A Specific User Information
+const getTag = async () => {
+  const listId = "<List Id>";
+  const email = "user_email";
+  const subscriberHash = md5(email.toLowerCase())
+
+  const response = await mailchimp.lists.getListMemberTags(listId, subscriberHash)
+
+  console.log(response);
+}
+
+// getInformation()
