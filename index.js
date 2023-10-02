@@ -56,7 +56,7 @@ const member = async () => {
 
 //Add Member To A List
 const addMember = async () => {
-  const response = await mailchimp.lists.addListMember("0ec9a1c754", {
+  const response = await mailchimp.lists.addListMember("<List Id>", {
     email_address: "email",
     status: "subscribed",
     tags: ["Tags"],
@@ -76,3 +76,29 @@ const addMember = async () => {
 };
 
 // addMember();
+
+
+// Update A Member By Id in A Speciifc List
+const updateMember = async () => {
+
+  const email = "user_email";
+  const subscriberHash = md5(email.toLowerCase())
+
+  const response = await mailchimp.lists.updateListMember(
+    "<List Id>",
+    subscriberHash,
+    {
+      status: "subscribed",
+      email_address: "email",
+      tags: ["Tags"],
+      merge_fields: {
+        FNAME: "First Name",
+        LNAME: "Last Name",
+        PHONE: "Phone Number"
+      },
+    }
+  );
+  console.log(response);
+};
+
+// updateMember();
